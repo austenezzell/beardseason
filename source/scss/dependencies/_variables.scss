@@ -1,25 +1,29 @@
-$cinco-blue: #00a9c5;
+$beardseason-red: #B5293C;
 
 // Brand colors
-$color-primary: $cinco-blue;
-$color-secondary: #c500a9;
-$color-black: #3d3d3d;
-$color-red: #ff0000;
-$color-green: #00ff00;
-$color-blue: #0000ff;
+$color-primary: $beardseason-red;
+$color-secondary: #000;
+$color-black: #000;
+$color-red: #B5293C;
+$color-purple: #C3ACB2;
+$color-tan: #E8CFBB;
 $color-gray: #cccccc;
 $color-light-gray: #efefef;
 $color-dark-gray: #444444;
 
 // Text colors
-$color-black: #3d3d3d;
-$color-link: $cinco-blue;
-$color-link-hover: darken($color-link, 10%);
+$color-black: #000;
+$color-link: $beardseason-red;
+$color-link-hover: lighten($color-link, 10%);
 
 // Third-party brand colors
 $color-facebook: #03539e;
 $color-twitter: #35ccff;
 $color-linkedin: #217bc1;
+
+// Fonts
+$serif-font: "garamond-premier-pro",serif;
+$sans-serif-font: "fira-mono", sans-serif;
 
 $base-spacing: 20px;
 
@@ -37,7 +41,7 @@ $breakpoints: map_keys($grid-breakpoints) !default;
 
 // Buttons
 $button-bg: #111;
-$button-bg-primary: $cinco-blue;
+$button-bg-primary: $beardseason-red;
 $button-bg-secondary: #c500a9;
 
 
