@@ -4,7 +4,11 @@ p, ul, ol, pre, table, blockquote {
   margin-top: 0;
   margin-bottom: $base-spacing;
 }
-
+.huge-font {
+  @include huge-font();
+  text-align: center;
+  letter-spacing: 50px;
+}
 h1, .h1 {
   @include h1-font();
 }
@@ -29,16 +33,25 @@ h6, .h6 {
   @include small-font();
 }
 
+.small {
+  @include small-font();
+}
+
 p, ul, ol, pre, table, blockquote {
   @include body-font();
 }
 
-p {}
+p {
+  font-family: $serif-font;
+  font-style: italic;
+  color: darken($color-purple,30%);
+}
 
 ul, ol {}
 
 a {
   color: $beardseason-red;
+  text-decoration: none;
 }
 
 p a {}
@@ -52,3 +65,7 @@ i {}
 time {}
 
 hr {}
+
+.center {
+  text-align: center;
+}

@@ -11,12 +11,17 @@
   > li { display: inline-block; }
 }
 
+.nowrap {
+  white-space: nowrap;  
+}
+
+
 // Margin & Padding
 @mixin box-spacing($value) {
   $box-sides: ( top: top, bottom: bottom, left: left, right: right );
 
   // '$n' is the number of classes you want to generate * '$i'
-  $n: 4;
+  $n: 8;
 
   // see _variables.scss for breakpoint definitions
   @each $breakpoint in $breakpoints {

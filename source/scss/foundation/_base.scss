@@ -11,10 +11,68 @@
   box-sizing: inherit;
 }
 
+html {
+  background: darken($color-purple,30%);
+}
+
 body {
   @include regular-font();
   @include font-size($body-font-size);
   margin: 0;
   padding: 0;
   background: linear-gradient(to bottom, $color-tan 0%, $color-purple 100%);
+  transition: .4s;
+  transition-property: background;
+  position: relative;
+}
+
+.moles {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  .mole {
+    position: absolute;
+    width: 0;
+    height: 0;
+    animation: scaleUp 2s ease-out;
+    cursor: pointer;
+  }
+  .ok-mole {
+    border-radius: 50%;
+    background: darken($color-purple,30%);
+  }
+  .bad-mole {
+
+  }
+}
+
+
+@keyframes scaleUp {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+.full-height {
+  height: 100vh;
+}
+.margin-auto {
+  margin: auto;
+}
+
+.fade-out {
+  animation: fade-out 2s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }

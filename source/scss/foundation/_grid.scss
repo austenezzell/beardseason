@@ -1,7 +1,7 @@
 @mixin grid() {
   // Mixin protects these variables and extends
   $grid-columns: 12;
-  $grid-max-width: 1200px;
+  $grid-max-width: 100%;
   $grid-gutter-width: $base-spacing;
 
   %grid-gutter {

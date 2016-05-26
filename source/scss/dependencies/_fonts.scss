@@ -10,7 +10,11 @@
 // }
 
 
-
+@mixin huge-font() {
+  @include font-size($huge-font-size);
+  line-height: 1;
+  font-weight: 400;
+}
 
 @mixin small-font() {
   @include font-size($small-font-size);

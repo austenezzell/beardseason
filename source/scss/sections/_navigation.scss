@@ -1,3 +1,98 @@
 /* ====================================
  * Navigation
  * ==================================== */
+.main-nav {
+  opacity: 0;
+  visibility: hidden;
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba($color-tan,.6);
+  padding: 8vh 8vw;
+  transition-duration: .4s;
+  transition-property: all;
+  z-index: 4;
+  .module {
+
+    // width: 84vw;
+    height: 84vh;
+    // margin: 8vh 8vw;
+    padding: 8vh;
+    background: $beardseason-red;
+    display: flex;
+    .nav-logo {
+      margin-bottom: 8vh;
+      svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+    ul {
+      padding: 0;
+    }
+    a {
+      color: white;
+    }
+    .nav-social {
+      align-self: flex-end;
+      ul {
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+        @include breakpoint(md) {
+          display: flex;
+        }
+        li {
+          flex: 1;
+          text-align: center;
+          a {
+            font-family: $serif-font;
+            font-style: italic;
+            color: darken($beardseason-red, 20%);
+            @include small-font();
+            @include breakpoint(md) {
+              @include body-font();
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.active-nav .main-nav {
+  top: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.home-nav {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  ul {
+    margin: 0 auto;
+    padding: 0;
+    li {
+      margin: 0;
+      list-style: none;
+      padding: 0;
+      a {
+        @include h4-font();
+        line-height: 1.5!important;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        transition: .4s;
+        transition-property: letter-spacing;
+        @include breakpoint(md) {
+          @include h3-font();
+        }
+        &:hover {
+          letter-spacing: 10px;
+        }
+      }
+    }
+  }
+}

@@ -51,11 +51,11 @@ $header-line-height: 1.1;
 
 // Font-sizes. Use the same format as $grid-breakpoints above
 $small-font-size: (
-  default: 12
+  default: 16
 );
 
 $body-font-size: (
-  default: 16,
+  default: 22,
 );
 
 $h4-font-size: (
@@ -76,4 +76,9 @@ $h1-font-size: (
 
 $h1-font-size: (
   default: 86
+);
+
+
+$huge-font-size: (
+  default: 130
 );
