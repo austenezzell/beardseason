@@ -4,6 +4,18 @@
 
 var aeApp = aeApp || {};
 
+  aeApp.checkMoleType = function(){
+    var $a = $('#a');
+    var $moleGroup = $('.mole-group');
+
+    $moleGroup.hover(function(){
+      var currentMole = $(this).attr('id');
+      if (currentMole == 'a'){
+        console.log('a');
+      }
+    })
+  }
+
   aeApp.moles = function(){
     var $molesContainer = $('.moles');
     var numberOfMoles = 100
@@ -19,7 +31,7 @@ var aeApp = aeApp || {};
 
     function mole(){
       moleCounter ++;
-      var moleSize = getRandom(8,20);
+      var moleSize = getRandom(6,15);
       var sideTwo = moleSize + (getRandom(-3,3));
       var badMoles = ['asymmetry', 'border', 'color', 'diameter', 'evolution'];
 
@@ -32,11 +44,6 @@ var aeApp = aeApp || {};
         stopGrowingMoles();
       }
     };
-
-    $molesContainer.on('click', '.mole', function(){
-      window.location="/test/"
-    });
-
 
   }
 
@@ -73,5 +80,6 @@ var aeApp = aeApp || {};
     aeApp.onload();
     aeApp.ctaHover();
     aeApp.moles();
+    aeApp.checkMoleType();
 
   }(window.jQuery, window, document));

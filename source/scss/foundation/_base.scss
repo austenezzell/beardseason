@@ -31,22 +31,18 @@ body {
   height: 100%;
   width: 100%;
   z-index: 0;
+  pointer-events: none;
   .mole {
     position: absolute;
     width: 0;
     height: 0;
     animation: scaleUp 2s ease-out;
-    cursor: pointer;
   }
   .ok-mole {
     border-radius: 50%;
     background: darken($color-purple,30%);
   }
-  .bad-mole {
-
-  }
 }
-
 
 @keyframes scaleUp {
     from {transform: scale(0)}
@@ -74,5 +70,14 @@ body {
   100% {
     opacity: 0;
     visibility: hidden;
+  }
+}
+
+.page-title {
+  h1 {
+    color: $color-primary;
+    text-align: center;
+    letter-spacing: 5px;
+    text-transform: uppercase;
   }
 }

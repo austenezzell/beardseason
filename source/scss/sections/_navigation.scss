@@ -9,25 +9,26 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background: rgba($color-tan,.6);
+  background: rgba($color-tan,.2);
   padding: 8vh 8vw;
   transition-duration: .4s;
   transition-property: all;
   z-index: 4;
   .module {
-
-    // width: 84vw;
+    position: relative;
     height: 84vh;
-    // margin: 8vh 8vw;
-    padding: 8vh;
     background: $beardseason-red;
-    display: flex;
     .nav-logo {
       margin-bottom: 8vh;
       svg {
         width: 100%;
         height: auto;
       }
+    }
+
+    .nav-container {
+      height: 100%;
+      padding: 8vh 8vw;
     }
     ul {
       padding: 0;

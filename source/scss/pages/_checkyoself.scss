@@ -1,0 +1,92 @@
+// CHECK YO SELF
+
+
+.map-container {
+  background: url('/img/map.png');
+  background-size: cover;
+  position: relative;
+  padding: 8.33%;
+  text-align: center;
+  .location {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, $color-tan 0%, $color-purple 100%);
+    padding: 180px 8.33%;
+    h2 {
+      color: $beardseason-red;
+      text-transform: uppercase;
+    }
+  }
+  form {
+    margin-top: 24px;
+    text-align: center;
+    background: transparent;
+    border-bottom: 2px solid $beardseason-red;
+    max-width: 360px;
+    margin: 0 auto;
+    width: 100%;
+    input {
+      padding: 0;
+      &:focus {
+        outline: none;
+      }
+    }
+    input[type="submit"] {
+      border: none;
+      color: $color-black;
+      font-family: $serif-font;
+      font-style: italic;
+      background: transparent;
+    }
+    input[type="text"] {
+      border: none;
+      background: none;
+    }
+    ::-webkit-input-placeholder {color: $color-black; font-family: $serif-font; font-style: italic;}
+    :-moz-placeholder           {color: $color-black; font-family: $serif-font; font-style: italic;}
+    ::-moz-placeholder          {color: $color-black; font-family: $serif-font; font-style: italic;}
+    :-ms-input-placeholder      {color: $color-black; font-family: $serif-font; font-style: italic;}
+  }
+}
+
+
+.ambassador-example {
+  display: none;
+  @include breakpoint(sm) {
+    display: block;
+  }
+}
+.become-ambassador-btn {
+  position: relative;
+  left: 0;
+  height: 200px;
+  padding: 65px 10px;
+  top: 120px;
+  @include h4-font();
+  @include breakpoint(sm) {
+    left: -8.33%;
+  }
+  @include breakpoint(md) {
+    top: 140px;
+  }
+  @include breakpoint(lg) {
+    top: 240px;
+  }
+}
+
+.mole-types {
+  text-align: center;
+  h2 {
+    margin: 0;
+    color: $beardseason-red;
+  }
+  img {
+    width: 130px;
+    padding: 0 30px;
+  }
+}
+
+.mole-description {
+
+}

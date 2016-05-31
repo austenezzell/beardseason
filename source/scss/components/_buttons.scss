@@ -8,12 +8,11 @@
 }
 
 .btn {
-  @include btn-color($color-black);
-  @include h4-font();
+  border: 5px solid $color-primary;
+  @include h3-font();
+  text-transform: uppercase;
   line-height: 1;
-  border: none;
-  padding: 0.66em 1.32em;
-  white-space: nowrap;
+  padding: 60px 10px;
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
@@ -21,6 +20,12 @@
   display: inline-block;  // <a>
   text-align: center;     // <a>
   text-decoration: none;  // <a>
+  transition: all .4s;
+  &:hover {
+    border-color: darken($color-purple,30%);
+    color: darken($color-purple,30%);
+    background: rgba($color-tan,.2);
+  }
 }
 
 .btn-primary {

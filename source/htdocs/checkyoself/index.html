@@ -1,0 +1,146 @@
+@@include('htdocs/_templates/_header.html', { "title": "Check yo self for melanoma", "description": "A non profit charity inviting gentlemen to grow their beards for winter, get a #BeardSeasonSkincheck, and encourage others to do the same. " })
+
+  <div class="moles"></div>
+  <div class="active-cta-container"></div>
+
+  <div class="logo wrap">
+    <a href="#">
+      @@include('htdocs/svg/logo.html')
+    </a>
+  </div>
+
+  <header class="wrap padding-y-xs-2x">
+    <div class="row">
+      <div class="col span-xs-10 offset-xs-1 span-sm-4 offset-sm-7">
+        <p class="page-description">Melanoma is one of the deadliest cancers in the world however, it can be one of the most treatable if detected early.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="wrap">
+    <div class="row padding-y-xs-2x padding-y-md-4x adding-y-lg-6x">
+      <div class="col span-xs-12 page-title">
+        <h1>Know<br>your</h1>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="mole-types wrap">
+    <div class="row">
+      <div class="col span-xs-10 offset-xs-1 center-xs">
+        <div class="row mole-description mole-a padding-y-xs-2x">
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <h2>A</h2>
+            <p>Asymmetry</p>
+          </div>
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <img src="/img/moles/a.svg" alt="">
+          </div>
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <p>Moles that, if divided in half, are not the same on both sides.</p>
+          </div>
+        </div>
+
+        <div class="row mole-description mole-a padding-y-xs-2x">
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <h2>B</h2>
+            <p>Border</p>
+          </div>
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <img src="/img/moles/b.svg" alt="">
+          </div>
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <p>Moles that are jagged like a coastline.</p>
+          </div>
+        </div>
+
+        <div class="row mole-description mole-a padding-y-xs-2x">
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <h2>C</h2>
+            <p>Color</p>
+          </div>
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <img src="/img/moles/c.svg" alt="">
+          </div>
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <p>Moles gaining or loosing color, or multicolored.</p>
+          </div>
+        </div>
+
+        <div class="row mole-description mole-a padding-y-xs-2x">
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <h2>D</h2>
+            <p>Division</p>
+          </div>
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <img src="/img/moles/d.svg" alt="">
+          </div>
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <p>Moles more over 5mm in diameter (especially if unevenly colored).</p>
+          </div>
+        </div>
+
+        <div class="row mole-description mole-a padding-y-xs-2x">
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <h2>E</h2>
+            <p>Evolution</p>
+          </div>
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <img src="/img/moles/e.svg" alt="">
+          </div>
+          <div class="col span-xs-12 center-xs span-md-4 center-xs">
+            <p>Moles that have changed size, shape color, or have risen.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap find-a-clinic">
+    <div class="row padding-y-xs-1x padding-y-md-2x padding-y-lg-4x">
+      <div class="col span-xs-10 offset-xs-1 map-container">
+        <div class="location">
+          <h2>Clinic finder</h2>
+          <div class="col span-xs-10 offset-xs-1">
+            <div class="row">
+              <form action="">
+                <input class="col span-xs-8" type="text" name="location" value="" placeholder="Location">
+                <input class="col span-xs-2" type="submit" value="Go">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="row padding-y-xs-2x padding-y-md-2x padding-y-lg-4x">
+      <div class="span-xs-3 offset-xs-3 ambassador-example">
+        <img src="/img/ambassador.jpg" alt="">
+      </div>
+      <a href="#" class="cta span-xs-6 offset-xs-3 span-sm-4 offset-sm-0 btn become-ambassador-btn">Become an<br>ambassador</a>
+    </div>
+  </section>
+
+  <section class="wrap padding-y-xs-2x padding-y-xs-8x ">
+    <div class="row">
+      <div class="col span-xs-12">
+        <p class="h3 center">grow on...</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="loading-overlay fade-out">
+    <div class="row full-height">
+      <div class="col span-xs-4 offset-xs-4 margin-auto">
+        @@include('htdocs/svg/beardseason.html')
+      </div>
+    </div>
+  </div>
+
+
+
+@@include('htdocs/_templates/_footer.html')
