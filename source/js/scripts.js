@@ -65,11 +65,6 @@ var aeApp = aeApp || {};
   };
 
 
-// GOOGEL MAP
-  aeApp.gmap = function() {
-
-
-  };
 
   // Define load object
   aeApp.onload = function() {
@@ -77,7 +72,6 @@ var aeApp = aeApp || {};
   };
 
   (function($, window, document) {
-    aeApp.gmap();
     aeApp.onload();
     aeApp.ctaHover();
     aeApp.moles();
@@ -85,14 +79,135 @@ var aeApp = aeApp || {};
 
   }(window.jQuery, window, document));
 
-
   var map;
+  var infoWindow;
+  var service;
+
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 8,
-      featureType:"all",
-      styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}]
+      center: {lat: -33.867, lng: 151.206},
+      zoom: 15,
+      styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#B5293C"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"lightness":17},{"weight":1.2}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#e54e43"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#c9c9c9"},{"lightness":17}]}]
+    });
+
+    infoWindow = new google.maps.InfoWindow();
+    service = new google.maps.places.PlacesService(map);
+
+    // The idle event is a debounced event, so we can query & listen without
+    // throwing too many requests at the server.
+    map.addListener('idle', performSearch);
+  }
+
+  function performSearch() {
+    var request = {
+      bounds: map.getBounds(),
+      keyword: 'Skin check'
+    };
+    service.radarSearch(request, callback);
+  }
+
+  function callback(results, status) {
+    if (status !== google.maps.places.PlacesServiceStatus.OK) {
+      console.error(status);
+      return;
+    }
+    for (var i = 0, result; result = results[i]; i++) {
+      addMarker(result);
+    }
+  }
+
+  function addMarker(place) {
+    var marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location,
+      // icon: {
+      //   url: 'http://maps.gstatic.com/mapfiles/circle.png',
+      //   anchor: new google.maps.Point(10, 10),
+      //   scaledSize: new google.maps.Size(10, 17)
+      // }
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      service.getDetails(place, function(result, status) {
+        if (status !== google.maps.places.PlacesServiceStatus.OK) {
+          console.error(status);
+          return;
+        }
+        console.log(place.aspects);
+        infoWindow.setContent(
+          '<div><h2>' + result.name + '</h2><p>' + result.formatted_address + '</p><p>' + result.formatted_phone_number + '</p><p><a href="' + result.website + '">website</a></p></div>'
+        );
+        infoWindow.open(map, marker);
+      });
     });
   }
-  console.log('map');
+
+
+
+  // var map;
+  // var infowindow;
+  //
+  // function initMap() {
+  //   var pyrmont = {lat: -33.867, lng: 151.195};
+  //
+  //   map = new google.maps.Map(document.getElementById('map'), {
+  //     center: pyrmont,
+  //     zoom: 15
+  //   });
+  //
+  //   infowindow = new google.maps.InfoWindow();
+  //   var service = new google.maps.places.PlacesService(map);
+  //   service.nearbySearch({
+  //     location: pyrmont,
+  //     radius: 500,
+  //     query: 'restaurant',
+  //     styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#B5293C"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"lightness":17},{"weight":1.2}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#e54e43"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#c9c9c9"},{"lightness":17}]}]
+  //   }, callback);
+  // }
+  //
+  // function callback(results, status) {
+  //   if (status === google.maps.places.PlacesServiceStatus.OK) {
+  //     for (var i = 0; i < results.length; i++) {
+  //       createMarker(results[i]);
+  //     }
+  //   }
+  // }
+  //
+  // function createMarker(place) {
+  //   var placeLoc = place.geometry.location;
+  //   var marker = new google.maps.Marker({
+  //     map: map,
+  //     position: place.geometry.location
+  //   });
+  //
+  //   google.maps.event.addListener(marker, 'click', function() {
+  //     console.log(place);
+  //
+  //     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+  //       'Place ID: ' + place.formatted_phone_number + '<br>' +
+  //       place.formatted_address + '</div>');
+  //     infowindow.open(map, this);
+  //   });
+  //
+  // }
+
+
+  // var map;
+  // function initMap() {
+  //   map = new google.maps.Map(document.getElementById('map'), {
+  //     center: {lat: -34.397, lng: 150.644},
+  //     zoom: 15,
+  //     featureType:"all",
+  //     styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#B5293C"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"lightness":17},{"weight":1.2}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#e54e43"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#c9c9c9"},{"lightness":17}]}]
+  //   });
+  //
+  //   infowindow = new google.maps.InfoWindow();
+  //   var service = new google.maps.places.PlacesService(map);
+  //   service.nearbySearch({
+  //     location: pyrmont,
+  //     radius: 500,
+  //     type: ['store']
+  //   }, callback);
+  //
+  // }
+  // console.log('map');
