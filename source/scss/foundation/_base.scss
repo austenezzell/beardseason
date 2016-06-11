@@ -24,7 +24,11 @@ body {
   transition: .4s;
   transition-property: background;
   position: relative;
+  cursor: url(/img/magnify.svg), auto;
 }
+
+
+
 
 .moles {
   position: absolute;

@@ -22,6 +22,10 @@ svg {
   height: auto;
 }
 
+.luminosity {
+  mix-blend-mode: luminosity;
+}
+
 .multiply {
   mix-blend-mode: multiply;
 }

@@ -52,6 +52,7 @@ ul, ol {}
 a {
   color: $beardseason-red;
   text-decoration: none;
+  cursor: url(/img/pointer.svg), pointer;
 }
 
 p a {}

@@ -21,6 +21,7 @@
   text-align: center;     // <a>
   text-decoration: none;  // <a>
   transition: all .4s;
+  cursor: url(/img/pointer.svg), pointer;
   &:hover {
     border-color: darken($color-purple,30%);
     color: darken($color-purple,30%);

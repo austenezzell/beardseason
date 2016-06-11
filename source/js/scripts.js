@@ -4,6 +4,33 @@
 
 var aeApp = aeApp || {};
 
+  aeApp.scrollTo = function(){
+
+    var joinUsBeginning = $('.ambassadors').waypoint({
+      handler: function(direction) {
+        if(direction == 'down'){
+          $('.join-us').addClass('visable');
+        } else {
+          $('.join-us').removeClass('visable');
+        }
+      }
+    });
+
+    var joinUsEnd = $('.ambassadors-page .grow-on').waypoint({
+      handler: function(direction) {
+        console.log(this.element.id + ' hit');
+        console.log(direction);
+        if(direction == 'down'){
+          $('.join-us').removeClass('visable');
+        } else {
+          $('.join-us').addClass('visable');
+        }
+      },
+      offset: 400
+    });
+
+  };
+
   aeApp.checkMoleType = function(){
     var $a = $('#a');
     var $moleGroup = $('.mole-group');
@@ -76,6 +103,7 @@ var aeApp = aeApp || {};
     aeApp.ctaHover();
     aeApp.moles();
     aeApp.checkMoleType();
+    aeApp.scrollTo();
 
   }(window.jQuery, window, document));
 

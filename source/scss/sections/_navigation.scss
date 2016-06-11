@@ -14,6 +14,7 @@
   transition-duration: .4s;
   transition-property: all;
   z-index: 4;
+  cursor: url(/img/pointer.svg), pointer;
   .module {
     position: relative;
     height: 84vh;

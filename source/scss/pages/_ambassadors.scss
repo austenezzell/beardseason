@@ -6,8 +6,37 @@
     line-height: 0;
     display: inline-block;
     margin-bottom: 60px;
+    // cursor: url(/img/magnify.svg), auto;
     &:hover {
       border-color: $beardseason-red;
     }
   }
+}
+.join-us-container {
+  @include breakpoint(md) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+  }
+}
+.join-us {
+  transition: opacity, 1s;
+  @include breakpoint(md) {
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    width: 250px;
+    height: 250px;
+    margin-top: -125px;
+    margin-left: -125px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &.visable {
+    opacity: 1;
+    visibility: visible;
+  }
+
 }
