@@ -9,6 +9,8 @@
     </a>
   </div>
 
+  <div class="logo-bg"></div>
+
   <header class="wrap padding-y-xs-2x">
     <div class="row">
       <div class="col span-xs-10 offset-xs-1 span-sm-6 offset-sm-6">
@@ -18,7 +20,7 @@
   </header>
 
   <section class="wrap">
-    <div class="row padding-y-xs-2x padding-y-md-4x adding-y-lg-6x">
+    <div class="row padding-y-xs-2x padding-y-md-4x padding-y-xl-6x">
       <div class="col span-xs-12 page-title">
         <h1>Know<br>your</h1>
       </div>
@@ -99,7 +101,10 @@
   </section>
 
   <section class="wrap find-a-clinic">
-    <div class="row padding-y-xs-1x padding-y-md-2x padding-y-lg-4x">
+    <div class="row padding-y-xs-1x padding-y-md-4x padding-y-xl-8x">
+      <div class="col span-xs-12 padding-y-xs-1x">
+        <p class="h3 center">Get checked</p>
+      </div>
       <div class="col span-xs-10 offset-xs-1 map-container">
         <div class="map-module">
           <div id="map"></div>
@@ -108,11 +113,8 @@
           <div class="module">
             <h2>Clinic finder</h2>
             <div class="col span-xs-10 offset-xs-1">
-              <div class="row">
-                <form action="">
-                  <input class="col span-xs-8" type="text" name="location" value="" placeholder="Location">
-                  <input class="col span-xs-2" type="submit" value="Go">
-                </form>
+              <div class="row map-form">
+                <input class="col span-xs-8" type="text" name="location" value="" placeholder="Location" id="autocomplete">
               </div>
             </div>
           </div>
@@ -123,10 +125,13 @@
 
   <section class="wrap">
     <div class="row padding-y-xs-2x padding-y-md-2x padding-y-lg-4x">
-      <div class="span-xs-3 offset-xs-3 ambassador-example">
-        <img src="/img/ambassador.jpg" alt="">
+      <div class="col span-xs-12 padding-y-xs-1x">
+        <p class="h3 center">and then</p>
       </div>
-      <a href="#" class="cta span-xs-6 offset-xs-3 span-sm-4 offset-sm-0 btn become-ambassador-btn">Become an<br>ambassador</a>
+      <div class="span-xs-3 offset-xs-3 ambassador-example">
+        <img class="luminosity" src="/img/ambassador.jpg" alt="">
+      </div>
+      <a href="/ambassadors/sign-up/" class="cta span-xs-6 offset-xs-3 span-sm-4 offset-sm-0 btn become-ambassador-btn">Become an<br>ambassador</a>
     </div>
   </section>
 
@@ -140,8 +145,8 @@
 
   <div class="loading-overlay fade-out">
     <div class="row full-height">
-      <div class="col span-xs-4 offset-xs-4 margin-auto">
-        @@include('htdocs/svg/beardseason.html')
+      <div class="col span-xs-8 offset-xs-2 span-md-4 offset-md-4 margin-auto center">
+        <p class="page-intro">Two in three Australians will develop Melanoma.</p>
       </div>
     </div>
   </div>

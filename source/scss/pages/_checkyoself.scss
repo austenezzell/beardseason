@@ -9,15 +9,29 @@
   mix-blend-mode: multiply;
 }
 
+.find-a-clinic {
+  overflow: hidden;
+}
+
 .map-container {
   // background: url('/img/map.png');
+  margin:0 auto;
+  height: 580px;
   background-size: cover;
   position: relative;
   text-align: center;
+  @include breakpoint(md) {
+    height: 600px;
+  }
+  @include breakpoint(lg) {
+    height: 620px;
+    max-width: 1000px;
+  }
   .location {
     position: relative;
     height: 100%;
     width: 100%;
+    cursor: auto;
     // visibility: hidden;
 
     padding: 8.33% 7%;
@@ -30,7 +44,23 @@
       text-transform: uppercase;
     }
   }
-  form {
+  .location.searched {
+    padding: 30px 15px;
+    height: auto;
+    .module {
+      padding: 30px 0;
+    }
+    h2 {
+      display: none;
+    }
+    .map-form {
+      max-width: 100%;
+      input[type="text"] {
+        width: 100%;
+      }
+    }
+  }
+  .map-form {
     margin-top: 24px;
     text-align: center;
     background: transparent;
@@ -40,6 +70,7 @@
     width: 100%;
     input {
       padding: 0;
+      margin: 0 auto;
       &:focus {
         outline: none;
       }
@@ -54,11 +85,25 @@
     input[type="text"] {
       border: none;
       background: none;
+      text-align: center;
     }
-    ::-webkit-input-placeholder {color: $color-black; font-family: $serif-font; font-style: italic;}
-    :-moz-placeholder           {color: $color-black; font-family: $serif-font; font-style: italic;}
-    ::-moz-placeholder          {color: $color-black; font-family: $serif-font; font-style: italic;}
-    :-ms-input-placeholder      {color: $color-black; font-family: $serif-font; font-style: italic;}
+    ::-webkit-input-placeholder {color: $color-black; font-family: $serif-font; font-style: italic; text-align: center;}
+    :-moz-placeholder           {color: $color-black; font-family: $serif-font; font-style: italic; text-align: center;}
+    ::-moz-placeholder          {color: $color-black; font-family: $serif-font; font-style: italic; text-align: center;}
+    :-ms-input-placeholder      {color: $color-black; font-family: $serif-font; font-style: italic; text-align: center;}
+  }
+}
+
+// INFOWINDOW STYLE
+.gm-style-iw {
+  padding: 30px;
+  p {
+    @include small-font();
+    margin-bottom: 0;
+  }
+  a {
+    color: $color-black;
+    text-decoration: underline;
   }
 }
 

@@ -13,7 +13,7 @@
   padding: 8vh 8vw;
   transition-duration: .4s;
   transition-property: all;
-  z-index: 4;
+  z-index: 99999;
   cursor: url(/img/pointer.svg), pointer;
   .module {
     position: relative;
@@ -39,25 +39,17 @@
     }
     .nav-social {
       align-self: flex-end;
-      ul {
-        margin: 0 auto;
-        padding: 0;
-        list-style: none;
+      a {
+        font-family: $serif-font;
+        font-style: italic;
+        color: darken($beardseason-red, 20%);
+        padding: 0 15px;
+        @include small-font();
         @include breakpoint(md) {
-          display: flex;
+          @include body-font();
         }
-        li {
-          flex: 1;
-          text-align: center;
-          a {
-            font-family: $serif-font;
-            font-style: italic;
-            color: darken($beardseason-red, 20%);
-            @include small-font();
-            @include breakpoint(md) {
-              @include body-font();
-            }
-          }
+        &:hover {
+          text-decoration: underline;
         }
       }
     }
@@ -85,14 +77,23 @@
         @include h4-font();
         line-height: 1.5!important;
         text-transform: uppercase;
-        letter-spacing: 5px;
+        letter-spacing: 2px;
         transition: .4s;
         transition-property: letter-spacing;
-        @include breakpoint(md) {
+        @include breakpoint(sm) {
           @include h3-font();
+          letter-spacing: 5px;
         }
+        @include breakpoint(md) {
+          @include h2-font();
+        }
+        // @include breakpoint(lg) {
+        //   @include h1-font();
+        // }
         &:hover {
-          letter-spacing: 10px;
+          @include breakpoint(md) {
+            letter-spacing: 10px;
+          }
         }
       }
     }

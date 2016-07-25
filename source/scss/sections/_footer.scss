@@ -3,6 +3,13 @@
  * ==================================== */
 
 footer {
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  position: relative;
+  z-index: 4;
   @include breakpoint(sm) {
     text-align: center;
   }

@@ -12,7 +12,7 @@
   @include h3-font();
   text-transform: uppercase;
   line-height: 1;
-  padding: 60px 10px;
+  padding: 60px 20px;
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
@@ -22,11 +22,22 @@
   text-decoration: none;  // <a>
   transition: all .4s;
   cursor: url(/img/pointer.svg), pointer;
+  span.price {
+    @include small-font();
+    display: block;
+    margin: 10px 0;
+    font-family: $serif-font;
+    color: black;
+  }
   &:hover {
     border-color: darken($color-purple,30%);
     color: darken($color-purple,30%);
     background: rgba($color-tan,.2);
   }
+}
+
+input[type="submit"]{
+  cursor: url(/img/pointer.svg), pointer;
 }
 
 .btn-primary {

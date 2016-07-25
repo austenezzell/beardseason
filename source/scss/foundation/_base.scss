@@ -24,7 +24,7 @@ body {
   transition: .4s;
   transition-property: background;
   position: relative;
-  cursor: url(/img/magnify.svg), auto;
+  cursor: url(/img/arrow.svg), auto;
 }
 
 
@@ -77,11 +77,37 @@ body {
   }
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .page-title {
   h1 {
     color: $color-primary;
     text-align: center;
     letter-spacing: 5px;
     text-transform: uppercase;
+  }
+  p {
+    text-align: center;
+    margin-bottom: 0;
+  }
+}
+
+.page-intro {
+  @include h4-font();
+  opacity: 0;
+  animation: fade-in 1s;
+  animation-fill-mode: forwards;
+  @include breakpoint(sm) {
+    @include h3-font();
+  }
+  @include breakpoint(lg) {
+    @include h2-font();
   }
 }

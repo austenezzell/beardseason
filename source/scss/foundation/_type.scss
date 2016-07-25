@@ -10,7 +10,10 @@ p, ul, ol, pre, table, blockquote {
   letter-spacing: 50px;
 }
 h1, .h1 {
-  @include h1-font();
+  @include h3-font();
+  @include breakpoint(md) {
+    @include h1-font();
+  }
 }
 
 h2, .h2 {
@@ -39,6 +42,12 @@ h6, .h6 {
 
 p, ul, ol, pre, table, blockquote {
   @include body-font();
+}
+
+blockquote {
+  text-align: center;
+  color: $beardseason-red;
+  text-transform: uppercase;
 }
 
 p {
